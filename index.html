@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dua 22</title>
+</head>
+<body>
+  <a id="manualLink" href="#" target="_blank" style="display:none;">Open WhatsApp</a>
+  <script>
+    const message = `*Ya Salaam, grant us ease on that Day*
+
+This dua invokes Allah ﷻ by His Names Ar-Raheem (The Most Merciful) and As-Salaam (The Source of Peace and Safety), seeking ease, comfort, and joy on the Day of Judgment. It asks for shade beneath His Arsh (Throne) and reunion with loved ones in everlasting peace.
+
+Because the mercy and peace of Allah transform the greatest trials into moments of divine tranquility.
+
+As Allah ﷻ says:
+
+As for those who believe and do good, the Most Compassionate will ˹certainly˺ bless them with ˹genuine˺ love.
+(Qur’an 19:96)
+
+*Ya Allah (O Allah), Ya Raheem (O Most Merciful), Ya Salaam (O Source of Peace and Safety), make the Day of Judgment a day of comfort, ease, and joy for us. Grant us shade under Your Arsh (Throne) and reunite us with our loved ones in peace and happiness. When we approach the Sirat (Bridge), let us cross it with ease, in the blink of an eye.*
+
+This dua is part of *The Supplication of Infinite Blessings* — a powerful collection of heartfelt supplications designed to benefit you in both this life and the next. 
+
+*At Dua Sharing, our mission is simple*: 
+
+To encourage sincere dua, meaningful sharing, and to multiply blessings through a growing global chain of people making dua for one another every single day.
+
+As Rasulullah ﷺ said: 
+
+“The supplication of a Muslim for his brother in his absence will certainly be answered. Every time he makes a supplication for good for his brother, the angel appointed for this task says: ‘Ameen! And may it be for you too.”
+
+Every post we share is taken directly from the full Supplication of Infinite Blessings — with the aim of moving hearts, inspiring action, and reminding us all of what truly matters.
+
+Access the full supplication in both English and Arabic at: https://www.duasharing.com
+
+When you share this post, you’re not simply sharing a dua. You’re opening the door to millions of people making sincere dua for you — with the Malaika (Angels) themselves saying “Ameen” to every single one.
+
+May Allah accept it from you, and reward you for all those it reaches through you.
+
+Ameen`;
+
+    const encodedText = encodeURIComponent(message);
+    const waProtocol = "whatsapp://send?text=" + encodedText;
+    const waWeb = "https://wa.me/?text=" + encodedText;
+    const manualLink = document.getElementById('manualLink');
+    manualLink.href = waWeb;
+
+    async function tryShare() {
+      try {
+        if (navigator.share) {
+          await navigator.share({ text: message });
+        } else {
+          window.location.href = waProtocol;
+          setTimeout(() => { window.location.href = waWeb; }, 1200);
+        }
+      } catch (err) {
+        window.location.href = waWeb;
+      }
+    }
+
+    window.addEventListener('load', tryShare);
+  </script>
+</body>
+</html>
